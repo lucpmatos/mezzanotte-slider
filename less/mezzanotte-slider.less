@@ -1,0 +1,139 @@
+// Theme: Mezzanotte
+// Developed by: Lucas Pedro
+//=============================
+// Transitions
+//=============================
+.transition1s (@range: all, @time: 0.1s, @ease: ease-in-out) {
+	-moz-transition: @range @time @ease;
+	-webkit-transition: @range @time @ease;
+	-o-transition: @range @time @ease;
+	transition: @range @time @ease;
+}
+.transition3s (@range: all, @time: 0.3s, @ease: ease-in-out) {
+	-moz-transition: @range @time @ease;
+	-webkit-transition: @range @time @ease;
+	-o-transition: @range @time @ease;
+	transition: @range @time @ease;
+}
+//=============================
+// Slider de fotos
+//=============================
+.mezzanotteSlider{
+  width:100%;
+  height:400px;
+  margin:auto;
+  display:block;
+  overflow:hidden;
+  position:relative;
+  ul{
+    position:relative;
+    margin:0;
+    width:100%;
+    height:100%;
+    list-style:none;
+    li{
+      list-style:none;
+      position:absolute;
+      img{
+        display:block;
+        width:100%;
+        height:auto;
+      }
+    }
+  }
+  .slideControl{
+    width:100%;
+    height:auto;
+    position:absolute;
+    bottom:10px;
+    .slidePag{
+      width:100%;
+      display:-webkit-flex;
+      display:flex;
+      -webkit-align-items:center;
+      align-items:center;
+      -webkit-justify-content:center;
+      justify-content:center;
+      a{
+        .transition3s();
+        width:15px;
+        height:15px;
+        border-radius:50%;
+        display:inline-block;
+        background:#ffffff;
+        opacity:0.3;
+        margin:5px 5px 0 5px;
+        &:hover{
+          .transition1s();
+          opacity:0.5;
+        }
+        &.ativo{
+          .transition1s();
+          width:17px;
+          height:17px;
+          opacity:1.0;
+        }
+      }
+    }
+    .arrows{
+      display:-webkit-flex;
+      display:flex;
+      -webkit-align-items:center;
+      align-items:center;
+      -webkit-justify-content:center;
+      justify-content:center;
+      a{
+        &.prev{
+          .transition3s();
+          width:40px;
+          height:40px;
+          opacity:0.3;
+          img{
+            .transition1s();
+            width:40px;
+            height:40px;
+          }
+          &:hover{
+            .transition1s();
+            opacity:1.0;
+          }
+          &:active{
+            img{
+              .transition1s();
+              margin-left:-5px;
+            }
+          }
+          &:link,
+          &:visited{
+            color:red;
+          }
+        }
+        &.next{
+          .transition3s();
+          width:40px;
+          height:40px;
+          opacity:0.3;
+          img{
+            .transition1s();
+            width:40px;
+            height:40px;
+          }
+          &:hover{
+            .transition1s();
+            opacity:1.0;
+          }
+          &:active{
+            .transition1s();
+            img{
+              margin-left:5px;
+            }
+          }
+          &:link,
+          &:visited{
+            color:blue;
+          }
+        }
+      }
+    }
+  }
+}
