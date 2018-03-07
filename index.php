@@ -21,8 +21,10 @@
       $(document).ready(function(){
         $('#qualquerNome').mezzanotteSlider({
           // controls:false
+          // pages:false,
+          // arrows:false,
           auto:true,
-          // tempRoll:1000
+          tempRoll:1000
         });
       });
     </script>

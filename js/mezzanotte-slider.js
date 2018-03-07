@@ -6,6 +6,8 @@ jQuery.fn.mezzanotteSlider = function(options){
   //Seta os valores padrões
   var defaults = {
     controls:true,
+    pages:true,
+    arrows:true,
     auto:false,
     tempRoll:3000
   }
@@ -55,6 +57,8 @@ return this.each(function(){
     }
   });
 
+
+  // botoes de paginas
   btnControl.click(function(){
     var self = $(this);
     var idx = self.index();
@@ -66,11 +70,12 @@ return this.each(function(){
     itens.eq(idx).addClass('ativo').show();
   });
 
+
   // rolagem automática
   if(options.auto == true){
     var autoRoll = setInterval(function(){ setRoll() }, options.tempRoll);
 
-    console.log('Rolagem automática de slider ATIVADA');
+    console.log('Rolagem automática ATIVADA');
 
     function setRoll(){
       var idxItemAtivo = itens.parent().find('li.ativo').index();
@@ -84,7 +89,7 @@ return this.each(function(){
     }
 
   }else{
-    console.log('Rolagem automátia de slider DESATIVADA');
+    console.log('Rolagem automátia DESATIVADA');
   }
 
   if(options.controls == false){
@@ -92,6 +97,20 @@ return this.each(function(){
     console.log('Controle de slider DESATIVADO');
   }else{
     console.log('Controle de slider ATIVADO');
+  }
+
+  if(options.arrows == false){
+    btnArrow.hide();
+    console.log('Setas DESATIVADAS');
+  }else{
+    console.log('Setas ATIVADAS');
+  }
+
+  if(options.pages == false){
+    btnControl.hide();
+    console.log('Botões de páginas DESATIVADO');
+  }else{
+    console.log('Botões de páginas ATIVADO');
   }
 
   btnControl.eq(0).click();
